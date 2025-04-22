@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+color: #002f34;
+    display: flex;
+    justify-content: left;
+    margin-left: 120px;
+    margin-top: 20px;
+    column-gap: 20px;
+    font-family: 'Poppins', sans-serif;
+
+    fill: #020309;
+}
+
+.logo {
+    margin-right: 20px;
+    display: flex;
+    margin-top: 10px;
+}
+
+.motor {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+  cursor: pointer;
+
+}
+.motor-text{
+    font-weight: bold;
+}
+.motor-svg{
+    padding: 10px;
+    background: linear-gradient(180deg, rgba(0, 47, 52, .16), rgba(0, 47, 52, .01) 81.77%, rgba(0, 47, 52, .01));
+    border-radius: 50%;
+}
+.motor-svg , .motor-text :hover{
+    background: linear-gradient(180deg, rgba(178, 231, 237, 0.205), rgba(175, 230, 236, 0.014));
+    color: blue;
+}
+.property-svg , .property-text :hover{
+    background: linear-gradient(180deg, rgba(178, 231, 237, 0.205), rgba(175, 230, 236, 0.014));
+    color: blue;
+}
+.property{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+  cursor: pointer;
+
+}
+.property-svg{
+    padding: 10px;
+    background: linear-gradient(180deg, rgba(0, 47, 52, .16), rgba(0, 47, 52, .01) 81.77%, rgba(0, 47, 52, .01));
+    border-radius: 50%;
+}
+.property-text{
+    font-weight: bold;
+}
+.main-head{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 120px;
+  gap: 20px;
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+
+    border: #002f34 1px solid;
+    border-radius: 5px;
+    max-width: fit-content;
+    padding: 5px 25px 5px 5px;
+}
+.location{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #002f34;
+}
+
+.location  input{
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #002f34;
+}
+.search input{
+    border: none;
+    outline: none;
+    padding: 5px 7px 5px 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #002f34;
+}
+.location-svg{
+    display: flex;
+    padding-top: 5px;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #002f34;
+}
+.search-m{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+
+    border: #002f34 1px solid;
+    border-radius: 5px;
+    max-width: fit-content;
+    padding: 5px 700px 5px 5px;
+}
