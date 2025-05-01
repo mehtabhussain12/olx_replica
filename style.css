@@ -492,5 +492,8 @@ h2 {
   }
   .app-text{
     display: none;
+  }.app-promo {
+display: none;
   }
+
 }
