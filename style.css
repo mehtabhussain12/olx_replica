@@ -490,4 +490,7 @@ h2 {
   .bottom-section p {
     text-align: left;
   }
+  .app-text{
+    display: none;
+  }
 }
