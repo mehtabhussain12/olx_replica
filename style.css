@@ -156,107 +156,212 @@
 }
 
 /* category */
+/* --- Category Section --- */
+.category {
+    background-color: var(--white);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--light-gray);
+}
+
 .category ul {
-  border-top: 1px solid #ccc;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 10px;
-  margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0 20px; /* Add horizontal padding */
+    overflow-x: auto; /* Enable horizontal scrolling for small screens */
+    white-space: nowrap; /* Prevent wrapping */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.category ul::-webkit-scrollbar {
+    height: 5px;
+}
+
+.category ul::-webkit-scrollbar-thumb {
+    background: var(--light-gray);
+    border-radius: 10px;
 }
 
 .category ul li {
-  list-style: none;
-  margin-left: 20px;
-  padding: 10px 0px;
-  font-size: 16px;
-  color: #002f34;
-  cursor: pointer;
+    padding: 8px 15px; /* Adjust padding for better spacing */
+    font-size: 15px; /* Slightly smaller font for more items */
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 20px; /* Make them look like pills */
+    margin-right: 10px; /* Space between items */
+    flex-shrink: 0; /* Prevent items from shrinking */
 }
 
 .category ul li:hover {
-  color: #0ca6ff;
+    color: var(--white);
+    background-color: var(--secondary-color);
+}
+
+.category ul li.active,
+.category ul li:first-child { /* Style "All Categories" or active category */
+    font-weight: bold;
+    color: var(--white);
+    background-color: var(--primary-color);
+}
+
+.category ul li.active:hover {
+    background-color: var(--primary-color); /* Keep same color on hover for active */
+}
+
+/* Add a visual indicator for "All Categories" dropdown if desired */
+.category ul li.allcat-dropdown {
+    position: relative;
+    padding-right: 30px; /* Space for arrow */
+}
+
+.category ul li.allcat-dropdown::after {
+    content: '▼'; /* Down arrow icon */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+}
+
+/* For the "All Categories" grid below */
+.cat-heading {
+    text-align: center;
+    color: var(--primary-color);
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 2em;
 }
 
 .allcat {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-
+    display: grid; /* Use CSS Grid for a better layout */
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between grid items */
+    padding: 20px;
+    max-width: 1200px; /* Adjust as needed */
+    margin: auto;
 }
-.cat-heading{
-  font-size: 30px;
-  color: #002f34;
-  font-weight: bold;
-  margin-top: 20px;
+
+.allcat .category-item { /* Renamed 'card' to 'category-item' for clarity */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    border-radius: 50px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none; /* If it's a link */
+    color: inherit; /* Inherit color from parent */
+}
+
+.allcat .category-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.allcat .category-item img {
+    width: 70px; /* Adjust size */
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.allcat .category-item span {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--text-color);
+}
+.product-listing {
+    margin-bottom: 80px;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px;
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-right: 50px;
-  margin-top: 20px;
+    background-color: #FFFFFF;
+    border-radius: 15px; /* More rounded */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother animation */
+    flex: 1 1 280px; /* Flex basis for responsive items */
+    max-width: 350px; /* Max width to prevent stretching on wider screens */
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    position: relative; /* For the button animation */
 }
 
-.card span {
-  font-size: 14px;
-  color: #002f34;
-  font-weight: bold;
-  margin-top: 20px;
+.card:hover {
+    transform: translateY(-10px); /* More pronounced lift */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
 }
 
-h2 {
-  margin-top: 20px;
-  font-size: 28px;
-  margin-bottom: 20px;
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background-color: #fdfdfd; /* Lighter background for images */
+    padding: 15px; /* More padding */
+    border-bottom: 1px solid #eee; /* Subtle separator */
 }
 
-.mobile-listings {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+.card h2 {
+    font-size: 1.5em; /* Slightly larger title */
+    margin: 15px 15px 10px;
+    color: #333;
+    min-height: 3em; /* Ensure consistent height for titles across cards */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 0; /* Remove h2 specific padding */
 }
 
-.cards {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  width: 240px;
+.card h2::after { /* Remove pseudo-element for card titles */
+    content: none;
 }
 
-
-.cards img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+.card p.price {
+    font-size: 1.8em; /* Larger price */
+    font-weight: bold;
+    color: #FF6F61;
+    margin-bottom: 15px;
+    margin-top: auto;
 }
 
-.cards-body {
-  padding: 15px;
+.card .add-to-cart-btn {
+    width: calc(100% - 40px); /* Full width minus padding */
+    margin: 0 20px 0;
+    padding: 12px 0;
+    background-color: #2ECC71; /* Green for add to cart */
+    color: white;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
 }
 
-.price {
-  font-weight: bold;
-  font-size: 18px;
-  color: #004080;
+.card .add-to-cart-btn:hover {
+    background-color: #27AE60;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(46, 204, 113, 0.4);
 }
 
-.title {
-  /* font-size: 16px; */
-  margin: 8px 0;
-}
-
-.place,
-.time {
-  font-size: 13px;
-
-}
 
 .olx-footer {
   /* width: 1440px; */
@@ -345,6 +450,95 @@ h2 {
   margin: 0;
   padding: 0 20px;
 }
+.card-actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin-top: auto; /* Pushes buttons to the bottom */
+}
+.btn{
+  background-color: #0ca6ffc8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 10px;
+  background-color: #3a77ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.modal-content button:hover {
+  background-color: #345ec4;
+}
+
+.modal-content a {
+  color: #3a77ff;
+  text-decoration: none;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: black;
+}
 
 @media (max-width: 768px) {
   .container {
@@ -408,28 +602,28 @@ h2 {
   }
 
   .main-head .location {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 20px;
-    padding: 5px 10px 5px 10px;
+    display: none;
+ 
   }
 
   .main-head .search-icon {
-    display: flex;
+    display: none;
     justify-content: center;
     padding: 10px 10px 10px 10px;
 
   }
-  .main-head .search,
-  .search-input,
-  .button {
-
+  .main-head .search {
     display: none;
+  }
+  .button {
+margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .allcat {
     display: flex;
-    
+    flex-wrap: wrap;
     /* flex-direction: column; */
     margin-left: 20px;
     justify-content: center;
